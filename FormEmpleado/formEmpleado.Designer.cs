@@ -32,7 +32,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.FechaNacAlumno = new System.Windows.Forms.DateTimePicker();
-            this.dgvDepa = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -59,11 +58,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreDepartamento = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.dgvDepa = new System.Windows.Forms.DataGridView();
             this.dgvEmpleado = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepa)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +103,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(565, 242);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Departamento";
+            this.tabPage2.Text = "Empleado";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -122,14 +122,6 @@
             this.FechaNacAlumno.Name = "FechaNacAlumno";
             this.FechaNacAlumno.Size = new System.Drawing.Size(100, 20);
             this.FechaNacAlumno.TabIndex = 93;
-            // 
-            // dgvDepa
-            // 
-            this.dgvDepa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepa.Location = new System.Drawing.Point(75, 286);
-            this.dgvDepa.Name = "dgvDepa";
-            this.dgvDepa.Size = new System.Drawing.Size(569, 110);
-            this.dgvDepa.TabIndex = 92;
             // 
             // btnCancelar
             // 
@@ -269,7 +261,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(640, 247);
+            this.tabPage3.Size = new System.Drawing.Size(565, 242);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Dep/Emp";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -287,9 +279,9 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(640, 247);
+            this.tabPage1.Size = new System.Drawing.Size(565, 242);
             this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Empleado";
+            this.tabPage1.Text = "Departamento";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -360,10 +352,18 @@
             this.txtId.Size = new System.Drawing.Size(121, 20);
             this.txtId.TabIndex = 35;
             // 
+            // dgvDepa
+            // 
+            this.dgvDepa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDepa.Location = new System.Drawing.Point(75, 422);
+            this.dgvDepa.Name = "dgvDepa";
+            this.dgvDepa.Size = new System.Drawing.Size(569, 110);
+            this.dgvDepa.TabIndex = 92;
+            // 
             // dgvEmpleado
             // 
             this.dgvEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleado.Location = new System.Drawing.Point(75, 413);
+            this.dgvEmpleado.Location = new System.Drawing.Point(75, 296);
             this.dgvEmpleado.Name = "dgvEmpleado";
             this.dgvEmpleado.Size = new System.Drawing.Size(569, 110);
             this.dgvEmpleado.TabIndex = 93;
@@ -381,9 +381,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepa)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).EndInit();
             this.ResumeLayout(false);
 

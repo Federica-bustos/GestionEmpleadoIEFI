@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.OleDb;
 using Entidades;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace CapaDatos
 {
@@ -22,6 +23,12 @@ namespace CapaDatos
                 orden = $"insert into Departamento values " +
                     $"('{objDepartamento.id}'," +
                     $"'{objDepartamento.NomDepartamento}')";
+
+            if (accion == "Modificar")
+                orden = $"update Departamento set NombreApellido = '{objDepartamento.NomDepartamento}' ";
+
+            if (accion == "Borrar")
+                orden = $"delete from Departamento where idDepartamento = {objDepartamento.id}";
 
 
             OleDbCommand cmd = new OleDbCommand(orden, conexion);
@@ -41,6 +48,40 @@ namespace CapaDatos
             }
             return resultado;
         }
-    }
 
+        public DataSet listaDepartamento(string id) // para uno o todos los datos segun el codigo
+        {
+            string orden = string.Empty;
+            if (id != "Todos")
+                orden = $"select * from Departamento where ID = {int.Parse(id)};";
+            else
+                orden = "select * from Departamento;";
+
+
+            OleDbCommand cmd = new OleDbCommand(orden, conexion);
+            DataSet ds = new DataSet();
+
+            OleDbDataAdapter da = new OleDbDataAdapter();
+
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+
+                return ds;
+            }
+            catch (Exception e)
+            {
+                return ds = null;
+                throw new Exception("Error al listar Departamento", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+        }
+    }
 }

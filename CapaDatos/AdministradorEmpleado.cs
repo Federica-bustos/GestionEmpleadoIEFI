@@ -34,14 +34,14 @@ namespace CapaDatos
             if (accion == "Modificar")
                 orden = $"update Empleado set NombreApellido = '{objEmpleado.nombre}' " +
                     $"where DNI = {objEmpleado.dni}; update Empleado set Apellido = '{objEmpleado.primerapellido}' " +
-                    $"where DNI = {objEmpleado.dni}; update Empleado set Correo = '{ objEmpleado.correo}' " +
+                    $"where DNI = {objEmpleado.dni}; update Empleado set Correo = '{objEmpleado.correo}' " +
                     $"where DNI = {objEmpleado.dni}; update Empleado set Departamento = '{objEmpleado.departamento}' " +
                     $"where DNI = {objEmpleado.dni}; update Empleado set FechaNacimiento = '{objEmpleado.fechanacimiento}'";
 
             if (accion == "Borrar")
                 orden = $"delete from Alumno where DNI = {objEmpleado.dni}";
 
-            OleDbCommand cmd = new OleDbCommand (orden, conexion);
+            OleDbCommand cmd = new OleDbCommand(orden, conexion);
             try
             {
                 Abrirconexion();
@@ -57,6 +57,40 @@ namespace CapaDatos
                 cmd.Dispose();
             }
             return resultado;
+        }
+
+        public DataSet listaEmpleado(string cual) // para uno o todos los datos segun el codigo
+        {
+            string orden = string.Empty;
+            if (cual != "Todos") ;
+            //orden = "select * from Empleado where DNI = " + int.Parse(cual) + ";";
+            else
+                orden = "select * from Empleado;";
+
+
+            OleDbCommand cmd = new OleDbCommand(orden, conexion);
+            DataSet ds = new DataSet();
+
+            OleDbDataAdapter da = new OleDbDataAdapter();
+
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                return ds = null;
+                throw new Exception("Error al listar Empleados", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return ds;
         }
     }
 }
