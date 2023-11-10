@@ -31,29 +31,29 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
-            this.FechaNacAlumno = new System.Windows.Forms.DateTimePicker();
+            this.FechaNacEmpleado = new System.Windows.Forms.DateTimePicker();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnModEmp = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.comDep = new System.Windows.Forms.ComboBox();
+            this.txtCor = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txt2ap = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtAp = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnModDep = new System.Windows.Forms.Button();
+            this.btAgregar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreDepartamento = new System.Windows.Forms.TextBox();
@@ -81,23 +81,23 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.FechaNacAlumno);
+            this.tabPage2.Controls.Add(this.FechaNacEmpleado);
             this.tabPage2.Controls.Add(this.btnCancelar);
             this.tabPage2.Controls.Add(this.btnBorrar);
-            this.tabPage2.Controls.Add(this.btnModificar);
+            this.tabPage2.Controls.Add(this.btnModEmp);
             this.tabPage2.Controls.Add(this.btnAgregar);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox5);
+            this.tabPage2.Controls.Add(this.comDep);
+            this.tabPage2.Controls.Add(this.txtCor);
+            this.tabPage2.Controls.Add(this.txtDni);
+            this.tabPage2.Controls.Add(this.txt2ap);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.txtAp);
+            this.tabPage2.Controls.Add(this.txtNom);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -115,13 +115,13 @@
             this.label3.TabIndex = 94;
             this.label3.Text = "Fecha Nacimiento";
             // 
-            // FechaNacAlumno
+            // FechaNacEmpleado
             // 
-            this.FechaNacAlumno.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FechaNacAlumno.Location = new System.Drawing.Point(416, 88);
-            this.FechaNacAlumno.Name = "FechaNacAlumno";
-            this.FechaNacAlumno.Size = new System.Drawing.Size(100, 20);
-            this.FechaNacAlumno.TabIndex = 93;
+            this.FechaNacEmpleado.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.FechaNacEmpleado.Location = new System.Drawing.Point(416, 88);
+            this.FechaNacEmpleado.Name = "FechaNacEmpleado";
+            this.FechaNacEmpleado.Size = new System.Drawing.Size(100, 20);
+            this.FechaNacEmpleado.TabIndex = 93;
             // 
             // btnCancelar
             // 
@@ -141,14 +141,15 @@
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
             // 
-            // btnModificar
+            // btnModEmp
             // 
-            this.btnModificar.Location = new System.Drawing.Point(148, 192);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(102, 23);
-            this.btnModificar.TabIndex = 89;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModEmp.Location = new System.Drawing.Point(148, 192);
+            this.btnModEmp.Name = "btnModEmp";
+            this.btnModEmp.Size = new System.Drawing.Size(102, 23);
+            this.btnModEmp.TabIndex = 89;
+            this.btnModEmp.Text = "Modificar";
+            this.btnModEmp.UseVisualStyleBackColor = true;
+            this.btnModEmp.Click += new System.EventHandler(this.btnModEmp_Click);
             // 
             // btnAgregar
             // 
@@ -158,6 +159,7 @@
             this.btnAgregar.TabIndex = 88;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label9
             // 
@@ -195,34 +197,34 @@
             this.label12.TabIndex = 84;
             this.label12.Text = "Segundo Apellido";
             // 
-            // comboBox1
+            // comDep
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(242, 136);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(195, 21);
-            this.comboBox1.TabIndex = 83;
+            this.comDep.FormattingEnabled = true;
+            this.comDep.Location = new System.Drawing.Point(242, 136);
+            this.comDep.Name = "comDep";
+            this.comDep.Size = new System.Drawing.Size(195, 21);
+            this.comDep.TabIndex = 83;
             // 
-            // textBox3
+            // txtCor
             // 
-            this.textBox3.Location = new System.Drawing.Point(14, 136);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(195, 20);
-            this.textBox3.TabIndex = 82;
+            this.txtCor.Location = new System.Drawing.Point(14, 136);
+            this.txtCor.Name = "txtCor";
+            this.txtCor.Size = new System.Drawing.Size(195, 20);
+            this.txtCor.TabIndex = 82;
             // 
-            // textBox4
+            // txtDni
             // 
-            this.textBox4.Location = new System.Drawing.Point(243, 88);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(85, 20);
-            this.textBox4.TabIndex = 81;
+            this.txtDni.Location = new System.Drawing.Point(243, 88);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(85, 20);
+            this.txtDni.TabIndex = 81;
             // 
-            // textBox5
+            // txt2ap
             // 
-            this.textBox5.Location = new System.Drawing.Point(18, 88);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(149, 20);
-            this.textBox5.TabIndex = 80;
+            this.txt2ap.Location = new System.Drawing.Point(18, 88);
+            this.txt2ap.Name = "txt2ap";
+            this.txt2ap.Size = new System.Drawing.Size(149, 20);
+            this.txt2ap.TabIndex = 80;
             // 
             // label7
             // 
@@ -242,19 +244,19 @@
             this.label8.TabIndex = 78;
             this.label8.Text = "Primer Apellido";
             // 
-            // textBox1
+            // txtAp
             // 
-            this.textBox1.Location = new System.Drawing.Point(243, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 20);
-            this.textBox1.TabIndex = 77;
+            this.txtAp.Location = new System.Drawing.Point(243, 29);
+            this.txtAp.Name = "txtAp";
+            this.txtAp.Size = new System.Drawing.Size(194, 20);
+            this.txtAp.TabIndex = 77;
             // 
-            // textBox2
+            // txtNom
             // 
-            this.textBox2.Location = new System.Drawing.Point(18, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(149, 20);
-            this.textBox2.TabIndex = 76;
+            this.txtNom.Location = new System.Drawing.Point(18, 29);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(149, 20);
+            this.txtNom.TabIndex = 76;
             // 
             // tabPage3
             // 
@@ -270,8 +272,8 @@
             // 
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.btnModDep);
+            this.tabPage1.Controls.Add(this.btAgregar);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.txtNombreDepartamento);
@@ -302,23 +304,25 @@
             this.button2.Text = "Borrar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnModDep
             // 
-            this.button3.Location = new System.Drawing.Point(202, 109);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 40;
-            this.button3.Text = "Modificar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnModDep.Location = new System.Drawing.Point(202, 109);
+            this.btnModDep.Name = "btnModDep";
+            this.btnModDep.Size = new System.Drawing.Size(75, 23);
+            this.btnModDep.TabIndex = 40;
+            this.btnModDep.Text = "Modificar";
+            this.btnModDep.UseVisualStyleBackColor = true;
+            this.btnModDep.Click += new System.EventHandler(this.btnModDep_Click);
             // 
-            // button4
+            // btAgregar
             // 
-            this.button4.Location = new System.Drawing.Point(106, 109);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 39;
-            this.button4.Text = "Agregar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btAgregar.Location = new System.Drawing.Point(106, 109);
+            this.btAgregar.Name = "btAgregar";
+            this.btAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btAgregar.TabIndex = 39;
+            this.btAgregar.Text = "Agregar";
+            this.btAgregar.UseVisualStyleBackColor = true;
+            this.btAgregar.Click += new System.EventHandler(this.button4_Click);
             // 
             // label2
             // 
@@ -394,30 +398,30 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker FechaNacAlumno;
+        private System.Windows.Forms.DateTimePicker FechaNacEmpleado;
         private System.Windows.Forms.DataGridView dgvDepa;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnBorrar;
-        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnModEmp;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.ComboBox comDep;
+        private System.Windows.Forms.TextBox txtCor;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.TextBox txt2ap;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtAp;
+        private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnModDep;
+        private System.Windows.Forms.Button btAgregar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombreDepartamento;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.OleDb;
+//using System.Data.OleDb;
 using Entidades;
 using System.Data.SqlClient;
 using System.Data;
@@ -31,7 +31,7 @@ namespace CapaDatos
                 orden = $"delete from Departamento where idDepartamento = {objDepartamento.id}";
 
 
-            OleDbCommand cmd = new OleDbCommand(orden, conexion);
+            SqlCommand cmd = new SqlCommand(orden, conexion);
             try
             {
                 Abrirconexion();
@@ -58,10 +58,10 @@ namespace CapaDatos
                 orden = "select * from Departamento;";
 
 
-            OleDbCommand cmd = new OleDbCommand(orden, conexion);
+            SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
 
-            OleDbDataAdapter da = new OleDbDataAdapter();
+            SqlDataAdapter da = new SqlDataAdapter();
 
             try
             {
@@ -69,12 +69,12 @@ namespace CapaDatos
                 cmd.ExecuteNonQuery();
                 da.SelectCommand = cmd;
                 da.Fill(ds);
-
-                return ds;
+                  
+                
             }
             catch (Exception e)
             {
-                return ds = null;
+                
                 throw new Exception("Error al listar Departamento", e);
             }
             finally
@@ -82,6 +82,7 @@ namespace CapaDatos
                 Cerrarconexion();
                 cmd.Dispose();
             }
+            return ds;
         }
     }
 }

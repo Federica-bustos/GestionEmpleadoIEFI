@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.OleDb;
+//using System.Data.OleDb;
 using Entidades;
+using System.Data.SqlClient;
 
 
 namespace CapaDatos
@@ -32,20 +33,20 @@ namespace CapaDatos
             //Set: De que atributo modificar
             //where: lo que no se puede modificar
             if (accion == "Modificar")
-                orden = $"update Empleado set NombreApellido = '{objEmpleado.nombre}' " +
-                    $"where DNI = {objEmpleado.dni}; update Empleado set Apellido = '{objEmpleado.primerapellido}' " +
-                    $"where DNI = {objEmpleado.dni}; update Empleado set Correo = '{objEmpleado.correo}' " +
-                    $"where DNI = {objEmpleado.dni}; update Empleado set Departamento = '{objEmpleado.departamento}' " +
-                    $"where DNI = {objEmpleado.dni}; update Empleado set FechaNacimiento = '{objEmpleado.fechanacimiento}'";
+                orden = $"update Empleado set nombre = '{objEmpleado.nombre}' " +
+                    $"where DNI = {objEmpleado.dni}; update Empleado set apellido = '{objEmpleado.primerapellido}' " +
+                    $"where DNI = {objEmpleado.dni}; update Empleado set correo = '{objEmpleado.correo}' " +
+                    $"where DNI = {objEmpleado.dni}; update Empleado set departamento = '{objEmpleado.departamento}' " +
+                    $"where DNI = {objEmpleado.dni}; update Empleado set fechaNacimiento = '{objEmpleado.fechanacimiento}'";
 
             if (accion == "Borrar")
-                orden = $"delete from Alumno where DNI = {objEmpleado.dni}";
+                orden = $"delete from Alumno where dni = {objEmpleado.dni}";
 
-            OleDbCommand cmd = new OleDbCommand(orden, conexion);
+            SqlCommand cmd = new SqlCommand(orden, conexion);
             try
             {
                 Abrirconexion();
-                resultado = cmd.ExecuteNonQuery();
+                resultado = cmd.ExecuteNonQuery(); 
             }
             catch (Exception e)
             {
@@ -62,27 +63,27 @@ namespace CapaDatos
         public DataSet listaEmpleado(string cual) // para uno o todos los datos segun el codigo
         {
             string orden = string.Empty;
-            if (cual != "Todos") ;
-            //orden = "select * from Empleado where DNI = " + int.Parse(cual) + ";";
+            if (cual != "Todos") 
+            orden = "select * from Empleado where DNI = " + int.Parse(cual) + ";";
             else
                 orden = "select * from Empleado;";
 
 
-            OleDbCommand cmd = new OleDbCommand(orden, conexion);
+            SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
 
-            OleDbDataAdapter da = new OleDbDataAdapter();
+            SqlDataAdapter da = new SqlDataAdapter();
 
             try
             {
                 Abrirconexion();
                 cmd.ExecuteNonQuery();
                 da.SelectCommand = cmd;
-                da.Fill(ds);
+                da.Fill(ds); // llena el dt con el data sa
             }
             catch (Exception e)
             {
-                return ds = null;
+            
                 throw new Exception("Error al listar Empleados", e);
             }
             finally
