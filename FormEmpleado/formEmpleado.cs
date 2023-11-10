@@ -325,7 +325,7 @@ namespace FormEmpleado
             }
         }
 
-        #endregion
+       
 
         private void btnModDep_Click(object sender, EventArgs e)
         {
@@ -349,6 +349,7 @@ namespace FormEmpleado
                 }
             }
         }
+        #endregion
     }
 
 
