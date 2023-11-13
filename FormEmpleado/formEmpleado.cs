@@ -134,7 +134,7 @@ namespace FormEmpleado
             {
                 if (validar == true)
                 {
-                    Txt_a_ObjAlumno();
+                    Txt_a_ObjEmpleado();
                     nGrabados = objNegEmpleado.abmEmpleado("Alta", objEntEmpleado);
                     if (nGrabados == -1)
                     {

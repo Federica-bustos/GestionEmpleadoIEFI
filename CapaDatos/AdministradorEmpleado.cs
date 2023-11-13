@@ -24,17 +24,19 @@ namespace CapaDatos
                 orden = $"insert into Empleado values " +
                     $"('{objEmpleado.nombre}'," +
                     $"'{objEmpleado.primerapellido}'" +
-                    $",'{objEmpleado.segundoapellido}'" +
-                    $",'{objEmpleado.departamento}'" +
+                    $",'{objEmpleado.segundoapellido}'" +    
                     $",'{objEmpleado.correo}'" +
+                    $",'{objEmpleado.departamento}'" +
                     $",'{objEmpleado.fechanacimiento}'" +
                     $",'{objEmpleado.dni}')";
 
             //Set: De que atributo modificar
             //where: lo que no se puede modificar
             if (accion == "Modificar")
-                orden = $"update Empleado set nombre = '{objEmpleado.nombre}' " +
+                orden = 
+                                                   $"update Empleado set nombre = '{objEmpleado.nombre}' " +
                     $"where DNI = {objEmpleado.dni}; update Empleado set apellido = '{objEmpleado.primerapellido}' " +
+                    $"where DNI = {objEmpleado.dni}; update Empleado set segundoApellido = '{objEmpleado.segundoapellido}' " +
                     $"where DNI = {objEmpleado.dni}; update Empleado set correo = '{objEmpleado.correo}' " +
                     $"where DNI = {objEmpleado.dni}; update Empleado set departamento = '{objEmpleado.departamento}' " +
                     $"where DNI = {objEmpleado.dni}; update Empleado set fechaNacimiento = '{objEmpleado.fechanacimiento}'";

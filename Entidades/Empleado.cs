@@ -15,7 +15,7 @@ namespace Entidades
         public string SegundoApellido;
         public string Departamento;
         public string Correo;
-        public DateTime Fechanacimiento;
+        public string Fechanacimiento;
         //public byte[] FotoEmpleado;
         public int DNI;
         #endregion
@@ -51,7 +51,7 @@ namespace Entidades
             set { correo = value; }
         }
 
-        public DateTime fechanacimiento
+        public string fechanacimiento
 
         {
             get { return Fechanacimiento; }
@@ -69,7 +69,7 @@ namespace Entidades
         #region Constructor
         public Empleado()
         { }
-        public Empleado(int id, string nombreempleado, string primerapellido, string segundoapellido, string departamento, string correo, DateTime fechanacimiento, int dni)
+        public Empleado(int id, string nombreempleado, string primerapellido, string segundoapellido, string departamento, string correo, string fechanacimiento, int dni)
         {
             Nombre = nombreempleado;
             PrimerApellido = primerapellido;
