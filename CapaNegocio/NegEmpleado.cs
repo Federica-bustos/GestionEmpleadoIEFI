@@ -25,5 +25,11 @@ namespace CapaNegocio
         {
             return DatosObjEmpleado.listaEmpleado (cual);
         }
+
+        public List<Empleado> ObtenerEmpleado()
+        {
+            return DatosObjEmpleado.ObtenerEmpleado();
+        }
+
     }
 }

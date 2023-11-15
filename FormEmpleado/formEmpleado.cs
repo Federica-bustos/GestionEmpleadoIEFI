@@ -17,6 +17,7 @@ namespace FormEmpleado
     {
         Empleado NuevoEmpleado;
         Empleado EmpleadoExistente;
+        
         NegEmpleado objNegEmpleado = new NegEmpleado();
         NegDepartamento objNegDepartamento = new NegDepartamento();
         bool nuevo = true;
@@ -46,10 +47,15 @@ namespace FormEmpleado
 
             LlenarDGVEmpleado();
             LlenarDGVDepartamento();
+            //llenarcombos();
+
+
 
         }
 
         public Empleado objEntEmpleado = new Empleado();
+        
+        
 
         #region Llenar DGV
 
@@ -247,11 +253,11 @@ namespace FormEmpleado
             //    return false;
             //}
 
-            //Correo
+            //Email
 
             if (txtCor.Text == string.Empty)
             {
-                MessageBox.Show("Ingrese apellido del empleado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ingrese email del empleado", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (txtCor.Text.Length > 50 || txtNom.Text.Length < 2)
@@ -291,8 +297,25 @@ namespace FormEmpleado
         private void Txt_a_ObjEmpleado()
         {
             objEntEmpleado.dni = int.Parse(txtDni.Text);
+            objEntEmpleado.nombre = txtNom.Text;
+            objEntEmpleado.primerapellido = txtAp.Text;
+            objEntEmpleado.segundoapellido = txt2ap.Text;
+            objEntEmpleado.correo = txtCor.Text;
+            objEntEmpleado.departamento = comDep.Text.ToString();
+
+            DateTime fechaNacEmpleado;
+            if (DateTime.TryParse(FechaNacEmpleado.Value.ToString(), out fechaNacEmpleado))
+            {
+                objEntEmpleado.Fechanacimiento = fechaNacEmpleado;
+            }
+            else
+            {
+                MessageBox.Show("Fecha ingresada no valida");
+            }
+
         }
 
+       
         private void Txt_a_ObjDepartamento()
         {
             objEntDepartamento.NomDepartamento = txtNombreDepartamento.Text;
@@ -350,6 +373,15 @@ namespace FormEmpleado
             }
         }
         #endregion
+
+        //#region Llenar combos
+        //private void llenarcombos()
+        //{
+        //    comDep.DataSource = objNegEmpleado.ObtenerEmpleado();
+        //    comDep.DisplayMember = "Departamento";
+        //}
+
+        //#endregion
     }
 
 

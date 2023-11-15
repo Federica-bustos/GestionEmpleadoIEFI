@@ -14,6 +14,7 @@ namespace CapaDatos
         protected SqlConnection conexion;
         protected string cadenaConexion = @"Data Source=DESKTOP-KIDBI04\SQLEXPRESS;Initial Catalog=GestionEmpleados;Integrated Security=True";
 
+        //Data Source=DESKTOP-KIDBI04\SQLEXPRESS;Initial Catalog=GestionEmpleados;Integrated Security=True;
 
         //public OleDbConnection conexion;
         //public string cadenaConexion =

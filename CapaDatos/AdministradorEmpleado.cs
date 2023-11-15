@@ -35,11 +35,11 @@ namespace CapaDatos
             if (accion == "Modificar")
                 orden = 
                                                    $"update Empleado set nombre = '{objEmpleado.nombre}' " +
-                    $"where DNI = {objEmpleado.dni}; update Empleado set apellido = '{objEmpleado.primerapellido}' " +
-                    $"where DNI = {objEmpleado.dni}; update Empleado set segundoApellido = '{objEmpleado.segundoapellido}' " +
-                    $"where DNI = {objEmpleado.dni}; update Empleado set correo = '{objEmpleado.correo}' " +
-                    $"where DNI = {objEmpleado.dni}; update Empleado set departamento = '{objEmpleado.departamento}' " +
-                    $"where DNI = {objEmpleado.dni}; update Empleado set fechaNacimiento = '{objEmpleado.fechanacimiento}'";
+                    $"where DNI = '{objEmpleado.dni}'; update Empleado set apellido = '{objEmpleado.primerapellido}' " +
+                    $"where DNI = '{objEmpleado.dni}'; update Empleado set segundoApellido = '{objEmpleado.segundoapellido}' " +
+                    $"where DNI = '{objEmpleado.dni}'; update Empleado set correo = '{objEmpleado.correo}' " +
+                    $"where DNI = '{objEmpleado.dni}'; update Empleado set departamento = '{objEmpleado.departamento}' " +
+                    $"where DNI = '{objEmpleado.dni}'; update Empleado set fechaNacimiento = '{objEmpleado.fechanacimiento}'";
 
             if (accion == "Borrar")
                 orden = $"delete from Alumno where dni = {objEmpleado.dni}";
@@ -94,6 +94,89 @@ namespace CapaDatos
                 cmd.Dispose();
             }
             return ds;
+        }
+
+        public DataSet ListaEmpleadoEliminar(string id)
+        {
+            string orden = $"delete from Empleado where DNI = {id};";
+
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al eliminar el Empleado", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return ds;
+        }
+
+        public List<Empleado> ObtenerEmpleado()
+        {
+
+            List<Empleado> lista = new List<Empleado>();
+
+
+            string OrdenEjecucion = "Select dni, nombre, primerApellido , departamento , Correo, fechaNacimiento from Empleado";
+
+
+
+
+            SqlCommand cmd = new SqlCommand(OrdenEjecucion, conexion);
+
+            SqlDataReader dataReader;
+
+            try
+            {
+                Abrirconexion();
+
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+
+
+                    //string nombre = dataReader.GetString(1);
+                    int dni = dataReader.GetInt32(0);
+                    string nombredni = $"{dni}";
+
+
+
+                    Empleado empleado = new Empleado();
+
+                    empleado.dni = dataReader.GetInt32(0);
+
+
+
+                    //alumno.nombreapellido = nombredni;
+
+                    lista.Add(empleado);
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Error al obtener la lista de empleados", e);
+            }
+
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+
+            return lista;
         }
     }
 }
